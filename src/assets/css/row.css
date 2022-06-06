@@ -1,0 +1,40 @@
+.rowOfTable {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #acacac;
+    height: 60px;
+    color: #676767;
+}
+
+.number {
+    padding: 20px;
+    margin: 0px;
+    width: 6.25%;
+    border: 1px solid #acacac;
+}
+
+.simpleCel {
+    padding: 15px;
+    margin: 0px;
+    width: 18.75%;
+    border: 1px solid #acacac;
+}
+
+.description {
+    padding: 20px;
+    margin: 0px;
+    width: 56.25%;
+    border: 1px solid #acacac;
+}
+
+.deleteBtn {
+    background-color: #f38988;
+    color: #9b4b44;
+    padding: 5px 20%;
+    border: 1px solid #9b4b44;
+    border-radius: 5px;
+}

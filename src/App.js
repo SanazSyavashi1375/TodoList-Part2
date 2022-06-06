@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import ErrorOfFill from "./component/layout/errorOfFill";
+import GetInformation from "./component/layout/getInformation";
+import TableOfTodo from "./component/layout/tableOfTodos";
+import BorderBox from "./component/UI/borderBox";
+import ErrorModule from "./component/UI/errorModule";
+import Row from "./component/UI/row";
+import TodoProvider from "./store/todosProvider";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return ( <
+        TodoProvider >
+        <
+        BorderBox >
+        <
+        GetInformation / >
+        <
+        TableOfTodo / >
+        <
+        /BorderBox> <
+        ErrorOfFill / >
+        <
+        /TodoProvider>
+    );
 }
 
 export default App;

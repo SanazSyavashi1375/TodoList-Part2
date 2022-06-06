@@ -1,0 +1,9 @@
+.label {
+    margin: 0px;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-bottom: 2px;
+}

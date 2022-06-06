@@ -1,0 +1,21 @@
+.addButton {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 30px;
+    width: 100%;
+}
+
+.addButton button {
+    width: 35%;
+    border-radius: 5px;
+    border: 1px solid #628150;
+    font: inherit;
+    background-color: #a9cf86;
+    color: #628150;
+}
+
+.addButton button :hover {
+    background-color: #91cf56;
+}
