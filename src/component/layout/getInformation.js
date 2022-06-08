@@ -8,17 +8,23 @@ import { useContext } from "react";
 import TodosContext from "../../store/todosContext"
 const GetInformation = () => {
     const todoCTX = useContext(TodosContext);
+
     const clickHandler = (event) => {
         event.preventDefault();
-        if (todoCTX.title.trim().length == 0 || todoCTX.description.trim().length == 0 || todoCTX.dueDate.trim().length == 0) {
+
+        if (todoCTX.title.trim() === '' || todoCTX.description.trim() === '' || todoCTX.dueDate.trim() === "") {
             todoCTX.showCartHandler();
         } else {
             todoCTX.addTodo(todoCTX.title, todoCTX.description, todoCTX.dueDate, todoCTX.id);
             todoCTX.setId(todoCTX.id + 1);
+            todoCTX.resetDescription();
+            todoCTX.resetDueDate();
+            todoCTX.resetTitle();
         }
     }
-    return ( <
-        TodoProvider >
+
+
+    return ( < TodoProvider >
         <
         Box >
         <
@@ -26,21 +32,18 @@ const GetInformation = () => {
         <
         Input label = "Title"
         input = {
-            { type: "text", id: "title", value: todoCTX.title, onChange: (event) => todoCTX.setTitle(event.target.value) } }
-        /> <
-        Input label = "Due Date"
+            { type: "text", id: "title", value: todoCTX.title, onChange: (event) => { todoCTX.setTitle(event) } }
+        }
+        /> <Input label = "Due Date"
         input = {
-            { type: "date", id: "dueDate", value: todoCTX.dueDate, onChange: (event) => todoCTX.setDueDate(event.target.value) } }
-        /> <
-        /Section> <
-        TextArea label = "Description"
+            { type: "date", id: "dueDate", value: todoCTX.dueDate, onChange: (event) => { todoCTX.setDueDate(event) } }
+        }
+        /> </Section > < TextArea label = "Description"
         textarea = {
-            { id: 'description', value: todoCTX.description, onChange: (event) => todoCTX.setDescription(event.target.value) } }
-        /> <
-        AddButton onClick = { clickHandler }
-        /> <
-        /Box> <
-        /TodoProvider>
+            { id: 'description', value: todoCTX.description, onChange: (event) => { todoCTX.setDescription(event) } }
+        }
+        /> <AddButton onClick = { clickHandler } /
+        > < /Box> </TodoProvider >
     )
 }
 export default GetInformation;

@@ -22,33 +22,32 @@ const TableOfTodo = (props) => {
                 dueDate = { todo.dueDate }
                 deleteBtn = 'True'
                 onClick = {
-                    () => todosCTX.removeTodo(todo.id) }
+                    () => todosCTX.removeTodo(todo.id)
+                }
                 / >  )
 
             }
             if (4 >= todosArr.length) {
                 let emptyRow = 4 - todosArr.length;
                 let todosArray = todosArr.map((todo, index) => < Row key = { todo.id }
-                    number = { index + 1 }
-                    title = { todo.title }
-                    description = { todo.description }
-                    dueDate = { todo.dueDate }
-                    deleteBtn = 'True'
-                    onClick = {
-                        () => todosCTX.removeTodo(todo.id) }
-                    / > )
-                    let emptyArr = [];
-                    for (let i = 0; i < emptyRow; i++) {
-                        emptyArr = [...emptyArr, < Row key = { Math.floor(Math.random() * 10000) }
-                            /> ]
+                        number = { index + 1 }
+                        title = { todo.title }
+                        description = { todo.description }
+                        dueDate = { todo.dueDate }
+                        deleteBtn = 'True'
+                        onClick = {
+                            () => todosCTX.removeTodo(todo.id)
                         }
-                        resultArr = [...todosArray, ...emptyArr]
-                    }
+                        / > )
+                        let emptyArr = [];
+                        for (let i = 0; i < emptyRow; i++) {
+                            emptyArr = [...emptyArr, < Row key = { Math.floor(Math.random() * 10000) }
+                                /> ]
+                            }
+                            resultArr = [...todosArray, ...emptyArr]
+                        }
 
-                    return ( <
-                        TodoProvider > { tableHeader } { resultArr } <
-                        /TodoProvider>
-                    )
-                }
+                        return ( < TodoProvider > { tableHeader } { resultArr } < /TodoProvider>)
+                        }
 
-                export default TableOfTodo;
+                        export default TableOfTodo;

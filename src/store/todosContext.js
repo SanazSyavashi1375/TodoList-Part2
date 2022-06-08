@@ -14,5 +14,20 @@ const TodosContext = React.createContext({
     cartIsShown: '',
     showCartHandler: () => {},
     hideCartHandler: () => {},
+    titleIsTouched: () => {},
+    descriptionIsTouched: () => {},
+    dueDateIsTouched: () => {},
+    resetTitle: () => {},
+    resetDescription: () => {},
+    resetDueDate: () => {},
+    titleHasError: () => {},
+    dueDateHasError: () => {},
+    descriptionHasError: () => {},
+    titleIsValid: () => {},
+    dueDateIsValid: () => {},
+    descriptionIsValid: () => {},
+    defaultTodoState: [],
+    todoReducer: () => {},
+    addDelete: () => {}
 });
 export default TodosContext;
