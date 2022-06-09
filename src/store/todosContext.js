@@ -28,6 +28,6 @@ const TodosContext = React.createContext({
     descriptionIsValid: () => {},
     defaultTodoState: [],
     todoReducer: () => {},
-    addDelete: () => {}
+    setTodo: () => {}
 });
 export default TodosContext;

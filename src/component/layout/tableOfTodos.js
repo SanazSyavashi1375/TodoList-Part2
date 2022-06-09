@@ -2,9 +2,11 @@ import TodoProvider from '../../store/todosProvider';
 import Row from '../UI/row'
 import { useContext } from 'react';
 import TodosContext from '../../store/todosContext';
+import { UseTodoList } from '../../hooks/useTodolist';
 
 const TableOfTodo = (props) => {
         const todosCTX = useContext(TodosContext);
+        const { deleteTodo, resultArr: todoList } = UseTodoList()
 
         let tableHeader = < Row number = 'No'
         title = 'Title'
@@ -22,7 +24,7 @@ const TableOfTodo = (props) => {
                 dueDate = { todo.dueDate }
                 deleteBtn = 'True'
                 onClick = {
-                    () => todosCTX.removeTodo(todo.id)
+                    () => deleteTodo(todo.id)
                 }
                 / >  )
 
@@ -36,7 +38,7 @@ const TableOfTodo = (props) => {
                         dueDate = { todo.dueDate }
                         deleteBtn = 'True'
                         onClick = {
-                            () => todosCTX.removeTodo(todo.id)
+                            () => deleteTodo(todo.id)
                         }
                         / > )
                         let emptyArr = [];

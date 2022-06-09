@@ -1,10 +1,8 @@
 import TodosContext from "./todosContext";
 import { useState } from "react";
 import UseInput from "../hooks/useInput";
-import UseTodoList from "../hooks/useTodolist";
-
 const TodoProvider = (props) => {
-
+        const [todoList, setTodoList] = useState([]);
         const [cartIsShown, setCartIsShown] = useState(false);
         const showCartHandler = () => {
             setCartIsShown(true);
@@ -14,7 +12,9 @@ const TodoProvider = (props) => {
             setCartIsShown(false);
 
         };
-
+        const addTodo = (title, description, dueDate, id) => {
+            setTodoList(prev => [...prev, { "title": title, "description": description, "dueDate": dueDate, "id": id }])
+        }
 
         const { value: title, reset: resetTitle, valueChangeHandler: setTitle } = UseInput()
         const { value: description, reset: resetDescription, valueChangeHandler: setDescription } = UseInput()
@@ -23,24 +23,7 @@ const TodoProvider = (props) => {
 
         const [id, setId] = useState(1);
 
-        const addDelete = (state, action) => {
-            let updatedTodos = [];
-            if (action.type === 'ADD') {
-                const actionTodo = [{ id: action.id, title: action.title, description: action.description, dueDate: action.dueDate }]
-                updatedTodos = state.todos.concat(actionTodo);
-            } else if (action.type === "REMOVE") {
-                updatedTodos = state.todos.filter(todo => {
-                    if (todo.id === action.idNum) {
-                        return ''
-                    } else {
-                        return todo
-                    }
-                })
-            }
-            return updatedTodos;
-        }
 
-        const { todoList, deleteTodo, addTodo } = UseTodoList()
         const todoContext = {
             id: id,
             title: title,
@@ -51,7 +34,7 @@ const TodoProvider = (props) => {
             resetDueDate: resetDueDate,
             todos: todoList,
             addTodo: addTodo,
-            removeTodo: deleteTodo,
+            // removeTodo: deleteTodo,
             setTitle: setTitle,
             setDescription: setDescription,
             setDueDate: setDueDate,
@@ -59,7 +42,9 @@ const TodoProvider = (props) => {
             cartIsShown: cartIsShown,
             showCartHandler: showCartHandler,
             hideCartHandler: hideCartHandler,
-            addDelete: addDelete
+            setTodo: setTodoList,
+
+
 
         }
 
